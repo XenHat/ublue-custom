@@ -24,13 +24,21 @@ dnf5 install -y tmux
 systemctl enable podman.socket
 
 ### Packages I use daily
-dnf5 install -y neovim keepassxc flatpak zsh ImageMagick btop syncthing shellcheck
+dnf5 install -y neovim keepassxc flatpak zsh
+dnf5 install -y ImageMagick btop syncthing shellcheck
+dnf5 install -y NetworkManager-tui
 dnf5 -y copr enable scottames/ghostty
 dnf5 install -y ghostty
-dnf5 install -y ufw
+dnf5 -y copr enable dejan/lazygit
+dnf5 install -y lazygit
+
+#dnf5 install -y ufw # Rules appear to be broken at the moment
+
+dnf5 install -y clang lld bolt mold llvm-cmake-utils polly
 
 # syncthingtray
 dnf5 config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:/mkittler/Fedora_43/home:mkittler.repo
+dnf5 install -y syncthingtray
 
 # Dank Material Shell
 dnf5 install -y niri
