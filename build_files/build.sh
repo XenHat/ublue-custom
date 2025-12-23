@@ -22,3 +22,22 @@ dnf5 install -y tmux
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+
+### Packages I use daily
+dnf5 install -y neovim keepassxc flatpak zsh ghostty imagemagick btop syncthing shellcheck
+dnf5 install -y ufw
+
+# syncthingtray
+dnf5 config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:/mkittler/Fedora_43/home:mkittler.repo
+
+# Dank Material Shell
+dnf5 install -y niri
+dnf5 -y copr enable errornointernet/quickshell
+dnf5 -y install quickshell
+
+# Gaming
+dnf5 -y install gamemode
+#
+### Configure some packages
+# SSH firewall port
+ufw allow ssh
