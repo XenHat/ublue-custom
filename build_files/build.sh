@@ -3,16 +3,7 @@
 set -ouex pipefail
 
 ### Install packages
-
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
-# this installs a package from fedora repos
 dnf5 install -y tmux
-
-# Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
 # dnf5 -y install package
@@ -23,11 +14,30 @@ dnf5 install -y tmux
 
 # systemctl enable podman.socket
 
+## Repositories
+dnf5 -y copr enable errornointernet/quickshell
+dnf5 -y copr enable avengemedia/dms
+dnf5 -y copr enable scottames/ghostty
+dnf5 -y copr enable dejan/lazygit
+dnf5 config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:/mkittler/Fedora_43/home:mkittler.repo
+
 # Remove KDE Entirely
 dnf5 remove -y plasma* kde* kf5* kf6*
-dnf5 autoremove -y
 dnf5 install -y greetd dms-greeter
-# Configure greetd maybe?
+
+## Packages I use daily
+dnf5 install -y neovim keepassxc flatpak zsh
+dnf5 install -y ImageMagick btop syncthing shellcheck
+dnf5 install -y NetworkManager-tui
+dnf5 install -y ghostty
+dnf5 install -y lazygit
+dnf5 install -y clang lld bolt mold llvm-cmake-utils polly
+dnf5 install -y syncthingtray
+dnf5 install -y dms matugen niri quickshell
+dnf5 -y install gamemode
+
+dnf5 autoremove -y
+## Configuration
 echo '[terminal]
 vt = 7
 [default_session]
@@ -36,27 +46,8 @@ user = "_greetd"' >/etc/greetd/config.toml
 
 systemctl disable gdm lightdm sddm
 systemctl enable greetd
-
-## Packages I use daily
-dnf5 install -y neovim keepassxc flatpak zsh
-dnf5 install -y ImageMagick btop syncthing shellcheck
-dnf5 install -y NetworkManager-tui
-dnf5 -y copr enable scottames/ghostty
-dnf5 install -y ghostty
-dnf5 -y copr enable dejan/lazygit
-dnf5 install -y lazygit
-
-#dnf5 install -y ufw # Rules appear to be broken at the moment
-
-dnf5 install -y clang lld bolt mold llvm-cmake-utils polly
-
-# syncthingtray
-dnf5 config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:/mkittler/Fedora_43/home:mkittler.repo
-dnf5 install -y syncthingtray
-
-# Dank Material Shell
-dnf5 -y copr enable errornointernet/quickshell
-dnf5 -y copr enable avengemedia/dms
-dnf5 install -y dms matugen niri quickshell
-# Gaming
-dnf5 -y install gamemode
+# Disable COPRs so they don't end up enabled on the final image:
+dnf5 -y copr disable errornointernet/quickshell
+dnf5 -y copr disable avengemedia/dms
+dnf5 -y copr disable scottames/ghostty
+dnf5 -y copr disable dejan/lazygit
