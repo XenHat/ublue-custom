@@ -59,11 +59,13 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
+    dnf5 -y copr enable dejan/lazygit &&
     dnf5 install -y tmux neovim keepassxc flatpak zsh btop ghostty lazygit \
       ImageMagick syncthing shellcheck gamemode \
       clang lld bolt mold llvm-cmake-utils polly \
       syncthing syncthingtray \
-      dms matugen niri quickshell xwayland-satellite
+      dms matugen niri quickshell xwayland-satellite &&
+      dnf -y copr disable dejan/lazygit
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
