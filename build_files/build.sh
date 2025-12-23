@@ -2,6 +2,14 @@
 
 set -ouex pipefail
 
+# Enable Copr support
+dnf5 install -y dnf5-plugins
+
+# Remove KDE Entirely
+dnf5 remove -y plasma* kde* kf5* kf6* gnome-* gtk-*
+# not stable yet, this removes too much: flatpak-preinstall.service fails with 'preinstall is not a flatpak command'
+# dnf5 remove -y libwayland-client libX11
+
 # Add COPRs
 dnf5 -y copr enable errornointernet/quickshell
 dnf5 -y copr enable avengemedia/dms
@@ -22,6 +30,8 @@ dnf5 install -y tmux neovim keepassxc flatpak zsh btop ghostty lazygit \
   ImageMagick syncthing shellcheck gamemode \
   syncthing syncthingtray \
   dms matugen niri quickshell xwayland-satellite
+
+dnf5 -y autoremove
 
 # Disable COPRs so they don't end up enabled on the final image:
 dnf5 -y copr disable errornointernet/quickshell
