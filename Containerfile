@@ -57,13 +57,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
   dnf5 remove -y plasma* kde* kf5* kf6* && \
   dnf5 autoremove -y
 
-# Login Manager
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-  --mount=type=cache,dst=/var/cache \
-  --mount=type=cache,dst=/var/log \
-  --mount=type=tmpfs,dst=/tmp \
-  dnf5 install -y greetd dms-greeter
-
 # Install wireless support
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
   --mount=type=cache,dst=/var/cache \
@@ -78,30 +71,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
   --mount=type=tmpfs,dst=/tmp \
   dnf5 install -y linux-firmware && \
   dnf5 install -y kmod-nvidia ublue-os-nvidia-addons nvidia-driver nvidia-settings nvidia-gpu-firmware
-
-# Copy configuration files
-COPY etc /etc
-# Add required user for the login manager
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-  --mount=type=cache,dst=/var/cache \
-  --mount=type=cache,dst=/var/log \
-  --mount=type=tmpfs,dst=/tmp \
-  useradd --system --no-create-home --shell /bin/false _greetd && \
-  mkdir /var/cache/dms-greeter && \
-  systemctl disable gdm lightdm sddm && \
-  systemctl enable greetd
-
-# Personal packages
-
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    dnf5 install -y tmux neovim keepassxc flatpak zsh btop ghostty lazygit \
-      ImageMagick syncthing shellcheck gamemode \
-      clang lld bolt mold llvm-cmake-utils polly \
-      syncthing syncthingtray \
-      dms matugen niri quickshell xwayland-satellite
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
