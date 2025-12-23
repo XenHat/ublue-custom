@@ -3,7 +3,8 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/aurora-nvidia-open@sha256:a21aab0abf7af14ec217e0cc54fe8de28c93e7c5c20e73bba09782e2a1e080af
+# FROM ghcr.io/ublue-os/aurora-nvidia-open@sha256:a21aab0abf7af14ec217e0cc54fe8de28c93e7c5c20e73bba09782e2a1e080af
+FROM quay.io/fedora/fedora-coreos:stable
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
@@ -29,6 +30,9 @@ FROM ghcr.io/ublue-os/aurora-nvidia-open@sha256:a21aab0abf7af14ec217e0cc54fe8de2
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
+# Install wireless support along with a static configuration file.
+RUN rpm-ostree install NetworkManager-wifi NetworkManager-wwan wpa_supplicant wireless-regdb && \
+    ostree container commit
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
