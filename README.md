@@ -1,11 +1,10 @@
 # Xenhat's ublue Image
 
+## Warning: Work in Progress
 [![Build container image](https://github.com/XenHat/ublue-custom/actions/workflows/build.yml/badge.svg)](https://github.com/XenHat/ublue-custom/actions/workflows/build.yml)
 
-## Warning: Work in Progress
-
-This image is primarily made for my laptop. It replaces Aurora's default DE
-with Dank Material Shell atop Niri and adds a few packages I use every day.
+An [Universal Blue](https://universal-blue.org/#cloud-native) image for my personal use. It replaces [KDE Plasma](https://kde.org/plasma-desktop/)
+with [Dank Material Shell](https://github.com/AvengeMedia/DankMaterialShell) atop [Niri](https://github.com/YaLTeR/niri) and adds a few packages I use every day.
 
 TODO:
 
