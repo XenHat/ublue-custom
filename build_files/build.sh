@@ -19,7 +19,6 @@ systemctl enable greetd
 # Personal packages
 dnf5 install -y tmux neovim keepassxc flatpak zsh btop ghostty lazygit \
   ImageMagick syncthing shellcheck gamemode \
-  clang lld bolt mold llvm-cmake-utils polly \
   syncthing syncthingtray \
   dms matugen niri quickshell xwayland-satellite
 
