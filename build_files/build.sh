@@ -7,6 +7,7 @@ dnf5 -y copr enable errornointernet/quickshell
 dnf5 -y copr enable avengemedia/dms
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr enable dejan/lazygit
+dnf5 config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:/mkittler/Fedora_43/home:mkittler.repo # syncthingtray
 
 # Login Manager
 dnf5 install -y greetd dms-greeter
