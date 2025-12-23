@@ -39,6 +39,9 @@ vt = 7
 [default_session]
 command = "dms-greeter --command niri"
 user = "_greetd"' >/etc/greetd/config.toml
+useradd --system --no-create-home --shell /bin/false _greetd
+# For some reason this fails without this
+mkdir /var/cache/dms-greeter
 
 systemctl disable gdm lightdm sddm
 systemctl enable greetd
