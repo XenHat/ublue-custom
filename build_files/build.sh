@@ -41,9 +41,8 @@ dnf5 config-manager addrepo --from-repofile=https://download.opensuse.org/reposi
 dnf5 install -y syncthingtray
 
 # Dank Material Shell
-dnf5 install -y niri
 dnf5 -y copr enable errornointernet/quickshell
-dnf5 -y install quickshell
-
+dnf5 -y copr enable avengemedia/dms
+dnf5 install -y dms matugen niri quickshell
 # Gaming
 dnf5 -y install gamemode
