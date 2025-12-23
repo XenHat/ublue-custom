@@ -39,7 +39,3 @@ dnf5 -y install quickshell
 
 # Gaming
 dnf5 -y install gamemode
-#
-### Configure some packages
-# SSH firewall port
-ufw allow ssh
