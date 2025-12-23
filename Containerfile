@@ -3,8 +3,8 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-# FROM ghcr.io/ublue-os/aurora-nvidia-open@sha256:a21aab0abf7af14ec217e0cc54fe8de28c93e7c5c20e73bba09782e2a1e080af
-FROM quay.io/fedora/fedora-coreos:stable
+FROM ghcr.io/ublue-os/aurora-nvidia-open@sha256:a21aab0abf7af14ec217e0cc54fe8de28c93e7c5c20e73bba09782e2a1e080af
+# FROM quay.io/fedora/fedora-coreos:stable
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
