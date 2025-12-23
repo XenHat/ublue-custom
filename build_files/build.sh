@@ -15,6 +15,7 @@ dnf5 install -y tmux
 # systemctl enable podman.socket
 
 ## Repositories
+dnf5 install -y dnf5-plugins
 dnf5 -y copr enable errornointernet/quickshell
 dnf5 -y copr enable avengemedia/dms
 dnf5 -y copr enable scottames/ghostty
