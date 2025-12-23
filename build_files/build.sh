@@ -24,7 +24,9 @@ dnf5 install -y tmux
 systemctl enable podman.socket
 
 ### Packages I use daily
-dnf5 install -y neovim keepassxc flatpak zsh ghostty imagemagick btop syncthing shellcheck
+dnf5 install -y neovim keepassxc flatpak zsh ImageMagick btop syncthing shellcheck
+dnf5 -y copr enable scottames/ghostty
+dnf5 install -y ghostty
 dnf5 install -y ufw
 
 # syncthingtray
