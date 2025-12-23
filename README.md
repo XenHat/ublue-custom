@@ -2,7 +2,7 @@
 
 # Xenhat's OCI ublue Image
 
-# Warning: Work in Progress
+### Warning: Work in Progress
 
 This image is primarily made for my laptop.
 
