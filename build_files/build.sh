@@ -26,16 +26,12 @@ dnf5 remove -y plasma* kde* kf5* kf6*
 dnf5 install -y greetd dms-greeter
 
 ## Packages I use daily
-dnf5 install -y neovim keepassxc flatpak zsh
-dnf5 install -y ImageMagick btop syncthing shellcheck
-dnf5 install -y NetworkManager-tui
-dnf5 install -y ghostty
-dnf5 install -y lazygit
-dnf5 install -y clang lld bolt mold llvm-cmake-utils polly
-dnf5 install -y syncthingtray
-dnf5 install -y dms matugen niri quickshell
-dnf5 -y install gamemode
-
+dnf5 install -y neovim keepassxc flatpak zsh btop ghostty lazygit \
+  ImageMagick syncthing shellcheck gamemode \
+  clang lld bolt mold llvm-cmake-utils polly \
+  syncthing syncthingtray \
+  dms matugen niri quickshell xwayland-satellite
+dnf5 install -y NetworkManager NetworkManager-tui # Temporary fallback until I pick something else
 dnf5 autoremove -y
 ## Configuration
 echo '[terminal]
