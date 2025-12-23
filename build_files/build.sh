@@ -21,9 +21,23 @@ dnf5 install -y tmux
 
 #### Example for enabling a System Unit File
 
-systemctl enable podman.socket
+# systemctl enable podman.socket
 
-### Packages I use daily
+# Remove KDE Entirely
+dnf5 remove -y plasma* kde* kf5* kf6*
+dnf5 autoremove -y
+dnf5 install -y greetd dms-greeter
+# Configure greetd maybe?
+echo '[terminal]
+vt = 7
+[default_session]
+command = "dms-greeter --command niri"
+user = "_greetd"' >/etc/greetd/config.toml
+
+systemctl disable gdm lightdm sddm
+systemctl enable greetd
+
+## Packages I use daily
 dnf5 install -y neovim keepassxc flatpak zsh
 dnf5 install -y ImageMagick btop syncthing shellcheck
 dnf5 install -y NetworkManager-tui
