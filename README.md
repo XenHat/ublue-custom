@@ -1,6 +1,7 @@
 # Xenhat's OCI ublue Image
 
 [![Build container image](https://github.com/XenHat/ublue-custom/actions/workflows/build.yml/badge.svg)](https://github.com/XenHat/ublue-custom/actions/workflows/build.yml)
+[![base/nogui image](https://github.com/XenHat/ublue-custom/actions/workflows/build.yml/badge.svg?branch=base%2Fnogui)](https://github.com/XenHat/ublue-custom/actions/workflows/build.yml)
 
 ## Warning: Work in Progress
 
