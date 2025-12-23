@@ -22,6 +22,13 @@ dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr enable dejan/lazygit
 dnf5 config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:/mkittler/Fedora_43/home:mkittler.repo
 
+# Install wireless support
+dnf5 install -y NetworkManager-wifi NetworkManager-wwan wpa_supplicant wireless-regdb
+
+# Install linux-firmware
+dnf5 install -y linux-firmware
+dnf5 install -y kmod-nvidia ublue-os-nvidia-addons nvidia-driver nvidia-settings nvidia-gpu-firmware
+
 # Remove KDE Entirely
 dnf5 remove -y plasma* kde* kf5* kf6*
 dnf5 install -y greetd dms-greeter
