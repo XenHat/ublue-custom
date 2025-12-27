@@ -15,6 +15,7 @@ dnf5 -y copr enable errornointernet/quickshell
 dnf5 -y copr enable avengemedia/dms
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr enable dejan/lazygit
+dnf5 -y copr enable chapien/SIF
 dnf5 config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:/mkittler/Fedora_43/home:mkittler.repo # syncthingtray
 
 # Login Manager
@@ -24,6 +25,12 @@ useradd --system --no-create-home --shell /bin/false _greetd
 mkdir /var/cache/dms-greeter
 systemctl disable gdm lightdm sddm
 systemctl enable greetd
+
+# Steam Icons Fixer
+dnf5 install -y sif-steam
+
+# Papirus icon theme (recommended for DMS theming)
+dnf5 install -y papirus-icon-theme
 
 # Personal packages
 dnf5 install -y tmux neovim keepassxc flatpak zsh btop ghostty lazygit \
