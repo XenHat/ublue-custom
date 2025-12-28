@@ -36,7 +36,8 @@ dnf5 install -y papirus-icon-theme
 dnf5 install -y tmux neovim keepassxc flatpak zsh btop ghostty lazygit \
   ImageMagick syncthing shellcheck gamemode \
   syncthing syncthingtray \
-  dms matugen niri quickshell xwayland-satellite
+  dms matugen niri quickshell xwayland-satellite \
+  fd-find
 
 dnf5 -y autoremove
 
