@@ -61,17 +61,18 @@ jobs:
           target-dir: /var/lib/containers
           mount-opts: compress-force=zstd:2
 
-      - name: Cache packages
-        id: cache-dnf
-        uses: actions/cache@v5
-        env:
-          cache-name: cache-dnf-packages
-        with:
-          path: |
-            /var/cache/libdnf5
-            /var/lib/dnf/system-upgrade
-            /var/cache/dnf
-            /var/cache/PackageKit
+      # - name: Cache packages
+      #   id: cache-dnf
+      #   uses: actions/cache@v5
+      #   key: FILL ME
+      #   env:
+      #     cache-name: cache-dnf-packages
+      #   with:
+      #     path: |
+      #       /var/cache/libdnf5
+      #       /var/lib/dnf/system-upgrade
+      #       /var/cache/dnf
+      #       /var/cache/PackageKit
 
       - name: Get current date
         id: date
