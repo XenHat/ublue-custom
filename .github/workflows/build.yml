@@ -54,6 +54,17 @@ jobs:
       - name: Mount BTRFS for podman storage
         id: container-storage-action
         uses: ublue-os/container-storage-action@911baca08baf30c8654933e9e9723cb399892140
+      - name: Cache packages
+        id: cache-dnf
+        uses: actions/cache@v5
+        env:
+          cache-name: cache-dnf-packages
+        with:
+          path: |
+            /var/cache/libdnf5
+            /var/lib/dnf/system-upgrade
+            /var/cache/dnf
+            /var/cache/PackageKit
 
         # Fallback to the remove-unwanted-software-action if github doesn't allocate enough space
         # See: https://github.com/ublue-os/container-storage-action/pull/11
