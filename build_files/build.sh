@@ -35,7 +35,7 @@ dnf5 install -y papirus-icon-theme
 # Personal packages
 dnf5 install -y tmux neovim keepassxc flatpak zsh btop ghostty lazygit \
   ImageMagick syncthing shellcheck gamemode \
-  syncthing syncthingtray \
+  syncthing syncthingtray libappindicator libappindicator-gtk3 libappindicator-sharp \
   dms matugen niri quickshell xwayland-satellite \
   fd-find
 
@@ -46,3 +46,11 @@ dnf5 -y copr disable errornointernet/quickshell
 dnf5 -y copr disable avengemedia/dms
 dnf5 -y copr disable scottames/ghostty
 dnf5 -y copr disable dejan/lazygit
+
+# Development packages to build dkms packages such as LenovoLegionLinux
+sudo dnf5 install -y kernel-headers kernel-devel dmidecode lm_sensors python3-PyQt6 python3-yaml python3-pip python3-argcomplete
+pip install darkdetect --root-user-action ignore
+sudo dnf5 -y group install "development-tools"
+sudo dnf5 -y group install "c-development"
+# Install the following for installation with DKMS
+sudo dnf5 -y install dkms openssl mokutil
