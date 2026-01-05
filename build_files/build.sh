@@ -49,7 +49,8 @@ dnf5 -y copr disable dejan/lazygit
 
 # Development packages to build dkms packages such as LenovoLegionLinux
 sudo dnf5 install -y kernel-headers kernel-devel dmidecode lm_sensors python3-PyQt6 python3-yaml python3-pip python3-argcomplete
-pip install darkdetect --root-user-action ignore
+# This does not work at the moment
+# pip install darkdetect --root-user-action ignore
 sudo dnf5 -y group install "development-tools"
 sudo dnf5 -y group install "c-development"
 # Install the following for installation with DKMS
