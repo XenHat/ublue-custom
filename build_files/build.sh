@@ -55,3 +55,4 @@ sudo dnf5 -y group install "development-tools"
 sudo dnf5 -y group install "c-development"
 # Install the following for installation with DKMS
 sudo dnf5 -y install dkms openssl mokutil
+git clone https://github.com/johnfanv2/LenovoLegionLinux && cd LenovoLegionLinux && cd kernel_module && make && sudo make install
