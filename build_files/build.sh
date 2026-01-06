@@ -37,7 +37,7 @@ dnf5 install -y tmux neovim keepassxc flatpak zsh btop ghostty lazygit \
   ImageMagick syncthing shellcheck gamemode \
   syncthingtray libappindicator libappindicator-gtk3 libappindicator-sharp \
   dms matugen niri quickshell xwayland-satellite \
-  fd-find
+  fd-find tuned-utils
 
 dnf5 -y autoremove
 
