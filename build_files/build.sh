@@ -46,13 +46,3 @@ dnf5 -y copr disable errornointernet/quickshell
 dnf5 -y copr disable avengemedia/dms
 dnf5 -y copr disable scottames/ghostty
 dnf5 -y copr disable dejan/lazygit
-
-# Development packages to build dkms packages such as LenovoLegionLinux
-sudo dnf5 install -y kernel-headers kernel-devel dmidecode lm_sensors python3-PyQt6 python3-yaml python3-pip python3-argcomplete
-# This does not work at the moment
-# pip install darkdetect --root-user-action ignore
-sudo dnf5 -y group install "development-tools"
-sudo dnf5 -y group install "c-development"
-# Install the following for installation with DKMS
-sudo dnf5 -y install dkms openssl mokutil
-git clone https://github.com/johnfanv2/LenovoLegionLinux && cd LenovoLegionLinux && cd kernel_module && make && sudo make install
