@@ -13,7 +13,7 @@ dnf5 remove -y plasma* kde* kf5* kf6* gnome-* gtk-*
 # Add COPRs
 dnf5 -y copr enable errornointernet/quickshell
 dnf5 -y copr enable avengemedia/dms
-dnf5 -y copr enable scottames/ghostty
+# dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr enable dejan/lazygit
 dnf5 -y copr enable chapien/SIF
 dnf5 config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:/mkittler/Fedora_43/home:mkittler.repo # syncthingtray
@@ -33,7 +33,7 @@ dnf5 install -y sif-steam
 dnf5 install -y papirus-icon-theme
 
 # Personal packages
-dnf5 install -y tmux neovim keepassxc flatpak zsh btop ghostty lazygit \
+dnf5 install -y tmux neovim keepassxc flatpak zsh btop lazygit \
   ImageMagick syncthing shellcheck gamemode \
   syncthingtray libappindicator libappindicator-gtk3 libappindicator-sharp \
   dms matugen niri quickshell xwayland-satellite \
@@ -44,5 +44,5 @@ dnf5 -y autoremove
 # Disable COPRs so they don't end up enabled on the final image:
 dnf5 -y copr disable errornointernet/quickshell
 dnf5 -y copr disable avengemedia/dms
-dnf5 -y copr disable scottames/ghostty
+# dnf5 -y copr disable scottames/ghostty
 dnf5 -y copr disable dejan/lazygit
