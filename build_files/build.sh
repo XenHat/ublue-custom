@@ -26,6 +26,8 @@ mkdir /var/cache/dms-greeter
 systemctl disable gdm lightdm sddm
 systemctl enable greetd
 
+dnf5 remove -y ghostty || true
+
 # Steam Icons Fixer
 # dnf5 install -y sif-steam
 
